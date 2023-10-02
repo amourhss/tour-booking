@@ -17,7 +17,12 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => rand(3,11),
+            'tour_id' => rand(1,10),
+            'rating' => $this->faker->numberBetween(1, 5),
+            'comment' => $this->faker->paragraph,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

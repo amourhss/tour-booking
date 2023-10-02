@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->date('available_dates')->nullable();
+            $table->integer('price');
+            $table->date('starting_date')->nullable();
+            $table->date('ending_date')->nullable();
             $table->foreignIdFor(Destination::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
