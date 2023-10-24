@@ -4,7 +4,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 </div>
 
                 <div class="row gy-5">
@@ -18,7 +23,7 @@
                                     <p class="card-text">Prise : ${{$tour->price}}</p>
                                     <p class="card-text">Starting date: {{\Carbon\Carbon::parse($tour->starting_date)->format('j F, Y')}}</p>
                                     <p class="card-text">Ending date: {{\Carbon\Carbon::parse($tour->ending_date)->format('j F, Y')}}</p>
-                                    <a href="#" class="btn btn-primary">Подробнее</a>
+                                    <a href="{{route('tour.show', $tour->id)}}" class="btn btn-primary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
