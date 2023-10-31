@@ -63,7 +63,7 @@
                                                 <input type="text" class="form-control" name="payment_status" value="paid" hidden="">
                                             </div>
                                         </div>
-                                        <br>
+                                        <br>ph
                                         <div class="modal-footer" style="display: flex; justify-content: space-between;">
                                             <input type="submit" class="btn btn-getstarted scrollto btn-outline-info" value="Next">
                                             <a href="{{route('tour.booking', $tour)}}" type="button" class="btn btn-getstarted scrollto btn-outline-info" >Go back</a>
