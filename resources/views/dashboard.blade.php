@@ -16,7 +16,7 @@
                     @foreach($tours as $tour)
                         <div class="col-xl-4 col-md-6" >
                             <div class="card" style="width: 18rem;" >
-                                <img src="{{asset('assets/img/blog3.jpg')}}" class="card-img-top"  alt="...">
+                                <img src="{{ asset('/storage/'. $tour->cover) }}" class="card-img-top"  alt="...">
                                 <div class="card-body">
                                     <h4 class="card-title">{{$tour->name}}</h4>
                                     <p class="card-text">Description: {{$tour->description}}</p>

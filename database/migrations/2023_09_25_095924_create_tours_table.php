@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('price');
+            $table->string('cover');
             $table->date('starting_date')->nullable();
             $table->date('ending_date')->nullable();
             $table->foreignIdFor(Destination::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
