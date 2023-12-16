@@ -40,27 +40,31 @@
 
         <!-- Template Main CSS File -->
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
+        <!-- Vendor JS Files -->
+        <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js"')}}></script>
+        <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
+        <script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+        <script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+        <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+        <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+
+        <!-- Template Main JS File -->
+        <script src="{{asset('assets/js/main.js')}}"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    @include('layouts.navigation')
+    @if(isset($header))
+        {{$header}}
+    @endif
+    <main>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+        {{$slot}}
+    </main>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
     </body>
 </html>
