@@ -41,13 +41,15 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
-
                     </div>
                 </div>
 
             </div>
+
+            <livewire:reviews :tourId="$tour->id"/>
+
         </div>
+
     </div>
 
 </x-app-layout>

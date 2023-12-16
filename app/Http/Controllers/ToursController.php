@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Review;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -11,7 +12,9 @@ class ToursController extends Controller
 {
     public function show(Tour $tour):View
     {
-        return view('tours.show', compact('tour'));
+        $reviews = Review::where('tour_id', '=', $tour->id)->orderBy('created_at', 'desc')->get();
+
+        return view('tours.show', compact('tour', 'reviews'));
     }
 
     public function booking(Tour $tour):View
