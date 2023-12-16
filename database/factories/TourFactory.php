@@ -26,7 +26,7 @@ class TourFactory extends Factory
             'name' => $this->faker->sentence(4),
             'description' => $this->faker->paragraph,
             'price' => $this->faker->numberBetween(500, 3000),
-            'cover' => $this->faker->image(('storage/app/public'),400,300, null, false),
+            'cover' => $this->faker->image(('storage/app/public'),500,312, null, false),
             'starting_date' => $startingDate,
             'ending_date' => $endingDate,
             'destination_id' => rand(1, 3),

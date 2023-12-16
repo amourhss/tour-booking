@@ -2,7 +2,7 @@
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" >
             <img src="{{asset('assets/img/hero-carousel/hero-carousel-3.svg')}}" class="img-fluid animated">
-            <h2>Welcome to <span>HeroBiz</span></h2>
+            <h2>Добро пожаловать в <span>Wanderlust</span></h2>
             <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
             <div class="d-flex">
                 <a href="#about" class="btn-get-started scrollto">Get Started</a>
@@ -14,7 +14,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>Our Services</h2>
+                <h2>Наши туры</h2>
                 <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
             </div>
 
@@ -29,7 +29,7 @@
                             </div>
                             <div class="details position-relative">
                                 <div class="icon">
-                                    <i class="bi bi-broadcast"></i>
+                                    <i class="bi bi-globe-central-south-asia"></i>
                                 </div>
                                 <a href="{{route('tour.show', $tour->id)}}" class="stretched-link">
                                     <h3>{{$tour->name}}</h3>

@@ -2,9 +2,7 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
         <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>HeroBiz<span>.</span></h1>
+            <img src="{{asset('assets/img/wanderlust (1).png')}}" alt="Main Page"  class="rounded-pill">
         </a>
 
         <nav id="navbar" class="navbar">
@@ -20,7 +18,7 @@
                 </li>
 
                 <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-                <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
+                <li><a class="nav-link scrollto" href="index.html#services">Туры</a></li>
                 <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
                 <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
                 <li><a href="blog.html">Blog</a></li>
