@@ -52,8 +52,13 @@
                         <div class="testimonial-item">
                             <h3>{{ $review->user->name }}</h3>
                             <div class="stars">
-                                @for ($i = 0; $i < $review->rating; $i++)
-                                    <i class="bi bi-star-fill"></i>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if($i <= $review->rating)
+                                        <i class="bi bi-star-fill"></i>
+                                    @else
+                                        <i class="bi bi-star"></i>
+                                    @endif
+
                                 @endfor
                             </div>
                             <p>

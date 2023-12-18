@@ -1,37 +1,63 @@
 <div>
-    <form wire:submit.prevent="submitReview">
-            <input wire:model="tour_id" type="hidden" value="{{ $tourId }}">
-            @error('tour') <span>{{ $message }}</span> @enderror
+    <div class="container" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto sm:px-8 lg:px-10">
+            <div class="comments">
 
-            <label>Rating:</label>
-            <input wire:model="rating" type="number" min="1" max="5">
-            @error('rating') <span>{{ $message }}</span> @enderror
+                <h4 class="comments-count">{{count($reviews)}} Comments</h4>
+                @foreach($reviews as $review)
+                    <div id="comment-1" class="comment">
+                        <div class="d-flex">
+                            <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                            <div>
+                                <h5><a href="">{{ $review->user->name }}</a></h5>
+                                <time datetime="2020-01-01">{{\Carbon\Carbon::parse($review->created_at)->format('j F Y')}}, {{$review->created_at->diffForHumans()}}</time>
+                                <div class="stars">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if($i <= $review->rating)
+                                            <i class="bi bi-star-fill" style="color: orange"></i>
+                                        @else
+                                            <i class="bi bi-star" style="color: orange"></i>
+                                        @endif
 
-            <label>Comment:</label>
-            <input wire:model.debounce.500ms="comment">
-            @error('comment') <span>{{ $message }}</span> @enderror
+                                    @endfor
+                                </div>
+                                <p> <i class="bi bi-quote quote-icon-left"></i>
+                                    {{ $review->comment }}
+                                    <i class="bi bi-quote quote-icon-right"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="reply-form">
 
-        <div>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
+                    <h4>Leave a Review</h4>
+                    <form wire:submit.prevent="submitReview">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input wire:model="tour_id" type="hidden" value="{{ $tourId }}">
+                                @error('tour') <span>{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                        <label>Rating:</label>
+                        <div class="row">
+                            <div class="col form-group">
+                                <input wire:model="rating" type="number" min="1" max="5">
+                                @error('rating') <span>{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <input wire:model.debounce.500ms="comment" class="form-control" placeholder="Your Comment*">
+                                @error('comment') <span>{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
 
-        @foreach($reviews as $review)
-            <div class="">
-                <h3>{{ $review->user->name }}</h3>
-                <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{$review->created_at->diffForHumans()}}
-                </p>
-                <div class="stars">
-                    @for ($i = 0; $i < $review->rating; $i++)
-                        <i class="bi bi-star-fill"></i>
-                    @endfor
+                    </form>
+
                 </div>
-                <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    {{ $review->comment }}
-                    <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-            </div>
-            <br>
-        @endforeach
+
+            </div><!-- End blog comments -->
+        </div>
+    </div>
 </div>
