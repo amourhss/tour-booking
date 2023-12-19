@@ -323,8 +323,11 @@
                         <div class="form-group mt-3" hidden="">
                             <label><b>Your name:</b></label>
                             <div class="col-md-6">
-                                <input type="number" class="form-control" name="user_id" value="{{ Auth::user()->id }}" >
-                                <div>{{ Auth::user()->name }}</div>
+                                @if(auth()->user())
+                                    <input type="number" class="form-control" name="user_id" value="{{ Auth::user()->id }}" >
+                                    <div>{{ Auth::user()->name }}</div>
+                                @endif
+
                             </div>
                         </div>
                         <div class="row">

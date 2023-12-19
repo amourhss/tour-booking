@@ -28,34 +28,37 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="reply-form">
+                @if(auth()->user())
+                    <div class="reply-form">
 
-                    <h4>Leave a Review</h4>
-                    <form wire:submit.prevent="submitReview">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input wire:model="tour_id" type="hidden" value="{{ $tourId }}">
-                                @error('tour') <span>{{ $message }}</span> @enderror
+                        <h4>Leave a Review</h4>
+                        <form wire:submit.prevent="submitReview">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input wire:model="tour_id" type="hidden" value="{{ $tourId }}">
+                                    @error('tour') <span>{{ $message }}</span> @enderror
+                                </div>
                             </div>
-                        </div>
-                        <label>Rating:</label>
-                        <div class="row">
-                            <div class="col form-group">
-                                <input wire:model="rating" type="number" min="1" max="5">
-                                @error('rating') <span>{{ $message }}</span> @enderror
+                            <label>Rating:</label>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input wire:model="rating" type="number" min="1" max="5">
+                                    @error('rating') <span>{{ $message }}</span> @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col form-group">
-                                <input wire:model.debounce.500ms="comment" class="form-control" placeholder="Your Comment*">
-                                @error('comment') <span>{{ $message }}</span> @enderror
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input wire:model.debounce.500ms="comment" class="form-control" placeholder="Your Comment*">
+                                    @error('comment') <span>{{ $message }}</span> @enderror
+                                </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
 
-                    </form>
+                        </form>
 
-                </div>
+                    </div>
+                @endif
+
 
             </div><!-- End blog comments -->
         </div>
